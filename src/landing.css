@@ -1,0 +1,183 @@
+/* NAVBAR */
+.glass-nav {
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.7);
+}
+
+/* HERO */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  padding-top: 80px;
+}
+
+/* FEATURE CARDS */
+.feature-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.18);
+}
+
+/* PAGE CONTENT */
+.page-container {
+  margin-top: 120px;
+  margin-bottom: 60px;
+}
+
+/* ACCENT */
+.text-accent {
+  color: #ffd43b;
+}
+
+/* ANIMATIONS */
+.animate-fade {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide {
+  animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+}
+/* ===========================
+   EMPLOYEE FORM BACKGROUND
+=========================== */
+
+.employee-form-page {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  display: flex;
+  align-items: center;
+  padding: 40px 15px;
+}
+
+/* ===========================
+   FORM CARD
+=========================== */
+
+.employee-card {
+  border-radius: 18px;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  animation: formFadeUp 0.6s ease forwards;
+}
+
+/* ===========================
+   INPUT POLISH
+=========================== */
+
+.employee-card .form-control {
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.employee-card .form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.employee-card .btn-primary {
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 500;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes formFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.employee-form-page {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 15px;
+}
+
+.employee-card {
+  border-radius: 18px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  animation: fadeUp 0.6s ease forwards;
+}
+/* ===========================
+   EMPLOYEE TABLE
+=========================== */
+
+.employee-table thead th {
+  background: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.employee-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.employee-table tbody tr:hover {
+  background-color: #f9fbff;
+}
+
+/* ===========================
+   PAGINATION BUTTONS
+=========================== */
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 8px;
+}
