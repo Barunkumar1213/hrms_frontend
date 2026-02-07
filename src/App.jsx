@@ -1,4 +1,5 @@
 import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import EmployeeForm from "./components/EmployeeForm";
 import EmployeeTable from "./components/EmployeeTable";
 import Attendance from "./components/Attendance";
@@ -6,22 +7,19 @@ import "./landing.css";
 
 export default function App() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = () => {
-    const nav = document.getElementById("hrmsNav");
-    if (nav?.classList.contains("show")) {
-      new window.bootstrap.Collapse(nav).hide();
-    }
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   const isActive = (path) =>
     location.pathname === path ? "active fw-semibold" : "";
 
   return (
     <>
-      {/* NAVBAR */}
+      {/* ================= NAVBAR ================= */}
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
         <div className="container">
+          {/* LOGO */}
           <Link
             className="navbar-brand fw-bold fs-4"
             to="/"
@@ -34,17 +32,14 @@ export default function App() {
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#hrmsNav"
-            aria-controls="hrmsNav"
-            aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
           {/* MENU */}
-          <div className="collapse navbar-collapse" id="hrmsNav">
+          <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
               <li className="nav-item">
                 <Link
@@ -55,6 +50,7 @@ export default function App() {
                   Home
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className={`nav-link ${isActive("/add")}`}
@@ -64,6 +60,7 @@ export default function App() {
                   Add Employee
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className={`nav-link ${isActive("/employees")}`}
@@ -73,6 +70,7 @@ export default function App() {
                   Employees
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className={`nav-link ${isActive("/attendance")}`}
@@ -87,9 +85,10 @@ export default function App() {
         </div>
       </nav>
 
-      {/* ROUTES */}
+      {/* ================= ROUTES ================= */}
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route
           path="/add"
           element={
@@ -98,6 +97,7 @@ export default function App() {
             </Page>
           }
         />
+
         <Route
           path="/employees"
           element={
@@ -106,6 +106,7 @@ export default function App() {
             </Page>
           }
         />
+
         <Route
           path="/attendance"
           element={
@@ -138,6 +139,7 @@ function Home() {
           <Link to="/add" className="btn btn-primary btn-lg px-4">
             Add Employee
           </Link>
+
           <Link to="/employees" className="btn btn-outline-light btn-lg px-4">
             View Employees
           </Link>
@@ -147,7 +149,7 @@ function Home() {
         <div className="row mt-5 g-4">
           <Feature
             title="Employee Management"
-            text="Add, view and delete employees with validations and error handling."
+            text="Add, view and delete employees with validations and clean UI."
           />
           <Feature
             title="Attendance Tracking"
@@ -155,7 +157,7 @@ function Home() {
           />
           <Feature
             title="Production Ready"
-            text="Clean UI, API integration, loading & empty states included."
+            text="Deployed, responsive, error-handled and scalable."
           />
         </div>
       </div>
